@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "iconfont"; /* Project id 2807593 */
+    src: url('//at.alicdn.com/t/font_2807593_xtoa5clo9f.woff2?t=1631455560843') format('woff2'),
+         url('//at.alicdn.com/t/font_2807593_xtoa5clo9f.woff?t=1631455560843') format('woff'),
+         url('//at.alicdn.com/t/font_2807593_xtoa5clo9f.ttf?t=1631455560843') format('truetype');
+  }
+  
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* 放大镜 */
+  .icon-icon-:before {
+    content: "\e60c";
+  }
+  /* 点赞 */
+  .icon-dianzan:before {
+    content: "\e609";
+  }
+  /*  左箭头*/
+  .icon-zuojiantou:before {
+    content: "\e62a";
+  }
+  /* 播放 实心 */
+  .icon-bofang1:before {
+    content: "\e662";
+  }
+  /* 关闭 */
+  .icon-guanbi:before {
+    content: "\e607";
+  }
+  /* 首页 */
+  .icon-shouye:before {
+    content: "\e6db";
+  }
+  /* 分享 */
+  .icon-fenxiang:before {
+    content: "\e601";
+  }
+  /* 垃圾桶 */
+  .icon-rest:before {
+    content: "\eb6f";
+  }
+  /* 暂停 */
+  .icon-tubiao-10:before {
+    content: "\e620";
+  }
+  /* 空心 */
+  .icon-bofang:before {
+    content: "\e600";
+  }
+  /* 右三角 */
+  .icon-yousanjiao:before {
+    content: "\e629";
+  }
+  
