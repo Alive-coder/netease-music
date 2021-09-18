@@ -160,12 +160,17 @@ export default {
         title: '加载中...'
         });
 
+        this.$store.commit('GET_NEXTID', songId)
+        // console.log(songId, '-----------')
+        // console.log(this.$store.state.nextId)
+
         this.isLoad = true
 
       Promise.all([ getSongDetail(songId), getSimiSongs(songId), getSongComment(songId), 
       getSongLyric(songId), getSongUrl(songId)]).then(res => {
         // 歌曲详情
         this.songDetail = res[0].data.songs[0]
+
         // 相似歌曲
         this.simiSongs = res[1].data.songs
         // 评论
@@ -203,6 +208,11 @@ export default {
           // 清除切换歌词
           this.clearLyricIndex()
         })
+
+          this.bgAudioManager.onEnded(() => {
+            this.getMusic(this.$store.state.nextId)
+          })
+
       })
 
        this.isLoad = false
@@ -252,7 +262,7 @@ export default {
       // 点击相似歌曲进行切换数据
       handleToSimi(id){
         this.getMusic(id)
-      }
+      },
 
   },
   onLoad(options){
@@ -282,7 +292,7 @@ export default {
     right: 0;
     bottom: 0;
     margin: auto;
-    animation: 10s linear move infinite;
+    animation: 20s linear move infinite;
     animation-play-state: paused;
   }
   .detail-play-run{

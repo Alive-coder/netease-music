@@ -133,10 +133,14 @@ export default {
     this.id = options.id
     // 请求数据
     getLists(this.id).then(res => {
-        console.log(res)
+        // console.log(res)
         this.playlist = res.data.playlist
         this.privileges = res.data.privileges
         this.names = res.data.playlist.tracks
+
+        let topListIds = res.data.playlist.trackIds
+        this.$store.commit('INIT_TOPLISTIDS', topListIds)
+        // console.log(this.$store.state.topListIds)
     // 当数据加载完成之后就显示数据，不处于加载中
     this.isLoad = false
     uni.hideLoading();

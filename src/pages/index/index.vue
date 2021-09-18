@@ -6,13 +6,29 @@
     <view class="container">
       <scroll-view scroll-y>
         <!-- 搜索栏 -->
-        <view class="search-wrap">
+        <view class="search-wrap" @click="handleToSearch">
           <text class="iconfont icon-icon-"></text>
           <input type="text" placeholder="搜索歌曲" />
         </view>
 
+          <!-- 骨架屏 -->
+        <view v-if="isloading">
+          <m-for-skeleton
+            :avatarSize="200"
+            :row="3"
+            :loading = isloading
+            isarc='square'
+            v-for="(item,key) in 4"
+            :key="key"
+            :title='false'
+            rowData='100%'>
+          </m-for-skeleton>
+
+        </view>
+
         <!-- 列表内容 -->
-        <view class="list-wrap">
+        <view class="list-wrap"
+        v-else>
           <view class="list-item"
 		  v-for="(item1, index1) in list"
 		  :key="index1"
@@ -41,23 +57,31 @@
 <script>
 import musicHead from "@/components/musicHead";
 import {getList} from '@/common/request'
+import mForSkeleton from "@/components/m-for-skeleton";
 
 export default {
   components: {
     musicHead,
+    mForSkeleton
   },
   data() {
     return {
 		// 是否显示返回图标
 		isBack: false,
 		// 获取列表数据
-		list: []
+		list: [],
+    // 是否显示骨架屏
+    isloading: true
 	};
   },
   onLoad() {
 	  getList().then(res => {
-		  console.log(res)
-		  this.list = res
+		  // console.log(res)
+      this.list = res
+      setTimeout(() => {
+        this.isloading = false
+      },1000)
+		  
 	  })
   },
   methods: {
@@ -67,7 +91,13 @@ export default {
 		uni.navigateTo({
 			url: '../list/index?id=' + id
 		});
-	}
+	},
+  // 跳转到搜索页面
+  handleToSearch(){
+    uni.navigateTo({
+       url: '/pages/search/index'
+    });
+  }
   }
 };
 </script>

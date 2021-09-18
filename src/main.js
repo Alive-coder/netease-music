@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App'
+import store from '@/store/index'
 
 Vue.config.productionTip = false
 
@@ -23,6 +24,7 @@ Vue.filter('formatTime', value => {
 })
 
 const app = new Vue({
-  ...App
+  ...App,
+  store
 })
 app.$mount()

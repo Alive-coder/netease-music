@@ -87,3 +87,41 @@ export function getSongUrl(songId){
     })
   })
 }
+
+
+// 搜索列表
+export function searchHot(){
+  return new Promise((reslove, reject) => {
+    wx.request({
+      url: `${baseUrl}search/hot/detail`,
+      success: res => {
+        reslove(res)
+      }
+    })
+  })
+}
+
+// 搜索结果
+export function searchWord(word){
+  return new Promise((reslove, reject) => {
+    wx.request({
+      url: `${baseUrl}search?keywords=${word}`,
+      success: res => {
+        reslove(res)
+      }
+    })
+  })
+}
+
+
+// 搜索结果
+export function searchSuggest(word){
+  return new Promise((reslove, reject) => {
+    wx.request({
+      url: `${baseUrl}search/suggest?keywords=${word}&type=mobile`,
+      success: res => {
+        reslove(res)
+      }
+    })
+  })
+}

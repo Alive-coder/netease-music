@@ -3,7 +3,7 @@
   <view>
     <!-- 头部标题 -->
     <view class="head-wrap">
-      <view class="icon" v-if="isBack">
+      <view class="icon" v-if="isBack" :style="{'color': iconColor}">
         <text class="iconfont icon-zuojiantou" @click="handleBack"></text>
         <text class="a">|</text>
         <text class="iconfont icon-shouye" @click="handleBackHome"></text>
@@ -19,7 +19,8 @@ export default {
   props: {
     title: String,
     isBack: Boolean,
-    titleColor: String
+    titleColor: String,
+    iconColor: String
   },
   data() {
     return {

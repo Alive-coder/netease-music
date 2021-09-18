@@ -13,6 +13,12 @@
 			}
 		},
 		{
+			"path": "pages/search/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/list/index",
 			"style": {
 				"navigationStyle": "custom"
